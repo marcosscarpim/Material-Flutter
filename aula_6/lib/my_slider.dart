@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'chart_view_model.dart';
 
 class MySlider extends StatefulWidget {
   @override
@@ -14,6 +17,9 @@ class _MySliderState extends State<MySlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Slider(value: _value, onChanged: _onValueChanged);
+    final viewModel = Provider.of<ChartViewModel>(context);
+    return Slider(
+        value: viewModel.sliderValue,
+        onChanged: (value) => viewModel.sliderValue = value);
   }
 }
