@@ -17,6 +17,7 @@ class AppColors {
   Color get yellow => const Color(0xFFF5B300);
   Color get orange => const Color(0xFFF07900);
   Color get green => const Color(0xFF02D4A0);
+  Color get textFieldBorderColor => Color(0xFFD9D9D9);
 }
 
 extension AppColorsExtensions on BuildContext {

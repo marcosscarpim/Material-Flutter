@@ -102,6 +102,12 @@ class AppTextStyles {
         fontWeight: FontWeight.w400,
         fontFamily: secondaryFont,
       );
+
+  TextStyle get labelTextField => TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        fontFamily: secondaryFont,
+      );
 }
 
 extension AppTextStylesExtensions on BuildContext {
