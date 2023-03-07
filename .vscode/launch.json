@@ -1,0 +1,88 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "my_first_app",
+            "cwd": "aula_2/my_first_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "my_first_app (profile mode)",
+            "cwd": "aula_2/my_first_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "my_first_app (release mode)",
+            "cwd": "aula_2/my_first_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "cadastro-cathinho",
+            "cwd": "aula_4/cadastro-cathinho",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "cadastro-cathinho (profile mode)",
+            "cwd": "aula_4/cadastro-cathinho",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "cadastro-cathinho (release mode)",
+            "cwd": "aula_4/cadastro-cathinho",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "widget_introduction",
+            "cwd": "aula_4/widget_introduction",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "widget_introduction (profile mode)",
+            "cwd": "aula_4/widget_introduction",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "widget_introduction (release mode)",
+            "cwd": "aula_4/widget_introduction",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "navigation",
+            "cwd": "aula_5/navigation",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "navigation (profile mode)",
+            "cwd": "aula_5/navigation",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "navigation (release mode)",
+            "cwd": "aula_5/navigation",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
