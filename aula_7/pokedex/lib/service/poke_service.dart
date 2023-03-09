@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:pokedex/model/pokemon.dart';
 import 'package:pokedex/model/pokemon_list.dart';
 
-Future<PokemonList?> getPokemonListData() async {
-  PokemonList? pokeList;
+Future<List<Pokemon>?> getPokemonListData() async {
+  List<Pokemon>? pokeList;
   try {
     final response = await http.get(
       Uri.parse("https://pokeapi.co/api/v2/pokemon?limit=150"),
@@ -14,7 +15,7 @@ Future<PokemonList?> getPokemonListData() async {
     );
     if (response.statusCode == 200) {
       final item = json.decode(response.body);
-      pokeList = PokemonList.fromJson(item);
+      pokeList = getPokemonList(item);
     } else {
       print("error");
     }

@@ -50,11 +50,9 @@ class _PokemonListState extends State<PokemonList> {
   Widget build(BuildContext context) {
     return Consumer<PokeViewModel>(
       builder: (context, model, child) => ListView(
-        children: List.generate(pokeViewModel.pokemonList.pokemonList.length,
-            (index) {
+        children: List.generate(pokeViewModel.pokemonList.length, (index) {
           return PokemonItem(
-              pokemon: pokeViewModel.pokemonList.pokemonList[index],
-              index: index);
+              pokemon: pokeViewModel.pokemonList[index], index: index);
         }),
       ),
     );
