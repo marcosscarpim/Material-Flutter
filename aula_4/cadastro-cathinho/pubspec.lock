@@ -91,6 +91,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  mask:
+    dependency: "direct main"
+    description:
+      name: mask
+      sha256: "44c7da6c4cb8038b31de6139c94ad95518f99cb8ef2e759843c9dc93ae563418"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   matcher:
     dependency: transitive
     description:
@@ -186,3 +194,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.2 <3.0.0"
+  flutter: ">=1.17.0"

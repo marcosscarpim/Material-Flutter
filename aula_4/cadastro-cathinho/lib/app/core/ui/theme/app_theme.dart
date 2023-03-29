@@ -20,9 +20,14 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.white,
       isDense: true,
+      filled: true,
       contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       enabledBorder: _defaultInputBorder,
       focusedBorder: _defaultInputBorder,
+      errorBorder: _defaultInputBorder,
+      focusedErrorBorder: _defaultInputBorder,
+      errorStyle: const TextStyle(),
+      errorMaxLines: 2,
       labelStyle: AppTextStyles.instance.labelTextField,
     ),
   );
