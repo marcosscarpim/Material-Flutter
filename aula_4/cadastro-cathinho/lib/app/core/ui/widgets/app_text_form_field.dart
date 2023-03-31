@@ -39,13 +39,12 @@ class AppTextFormField extends StatelessWidget {
             contentPadding: customContentPadding,
             label: Text(label),
             suffixIcon: isObscureText
-                ? IconButton(
-                    onPressed: () {
-                      _obscureTextVN.value = !obscureTextVNValue;
-                    },
-                    icon: Icon(obscureTextVNValue ? Icons.lock : Icons.lock_open),
+                ? InkWell(
+                    onTap: () => _obscureTextVN.value = !obscureTextVNValue,
+                    child: Icon(obscureTextVNValue ? Icons.lock : Icons.lock_open),
                   )
                 : suffixIcon,
+            suffixIconConstraints: const BoxConstraints(minWidth: 36),
           ),
           obscureText: obscureTextVNValue,
           keyboardType: keyboardType,

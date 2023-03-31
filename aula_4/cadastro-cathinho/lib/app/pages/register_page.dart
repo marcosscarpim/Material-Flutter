@@ -25,6 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final _phoneNumberEC = TextEditingController();
   final _passwordEC = TextEditingController();
   final _confirmPasswordEC = TextEditingController();
+  bool _termsAndConditionsChecked = false;
 
   @override
   void dispose() {
@@ -53,10 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Text(
               'Cadastro',
               textAlign: TextAlign.center,
-              style: AppTextStyles.instance.textHeadingH3.copyWith(
-                fontWeight: FontWeight.w400,
-                fontSize: 38,
-              ),
+              style: AppTextStyles.instance.textHeadingH3.copyWith(fontWeight: FontWeight.w400, fontSize: 38),
             ),
             const SizedBox(height: 32),
             Text(
@@ -67,24 +65,28 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(height: 24),
             Form(
               key: _formKey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
                   AppTextFormField(
                     controller: _firstNameEC,
                     label: 'Nome',
                     keyboardType: TextInputType.name,
+                    validator: (value) => Mask.validations.generic(value, error: 'Nome inválido', min: 3),
                   ),
                   const SizedBox(height: 24),
                   AppTextFormField(
                     controller: _lastNameEC,
                     label: 'Sobrenome',
                     keyboardType: TextInputType.name,
+                    validator: (value) => Mask.validations.generic(value, error: 'Sobrenome inválido'),
                   ),
                   const SizedBox(height: 24),
                   AppTextFormField(
                     controller: _emailEC,
                     label: 'E-mail',
                     keyboardType: TextInputType.emailAddress,
+                    validator: (value) => Mask.validations.email(value),
                   ),
                   const SizedBox(height: 24),
                   Row(
@@ -96,7 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           controller: _cpfEC,
                           label: 'CPF',
                           keyboardType: TextInputType.number,
-                          validator: (value) => Mask.validations.cpf(value, error: 'CPF inválido'),
+                          validator: (value) => Mask.validations.cpf(value),
                           formatters: [Mask.cpf()],
                         ),
                       ),
@@ -105,14 +107,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: AppTextFormField(
                           controller: _birthDateEC,
                           label: 'Nascimento',
-                          suffixIcon: const Icon(
-                            Icons.calendar_today_outlined,
-                            size: 12.5,
-                          ),
+                          suffixIcon: const Icon(Icons.calendar_today_outlined),
                           keyboardType: TextInputType.datetime,
-                          validator: (value) => Mask.validations.date(value, error: 'Data de Nascimento inválida'),
+                          // TODO: Need to fix validation error eg. value = 29/10/1999
+                          validator: (value) => Mask.validations.date(value),
                           formatters: [Mask.date()],
-                          customContentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
                         ),
                       ),
                     ],
@@ -134,27 +133,44 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _passwordEC,
                     label: 'Senha',
                     isObscureText: true,
+                    validator: (value) => Mask.validations.generic(value, error: 'Senha inválida', min: 8),
                   ),
                   const SizedBox(height: 24),
                   AppTextFormField(
                     controller: _confirmPasswordEC,
                     label: 'Confirmar Senha',
                     isObscureText: true,
+                    validator: (value) {
+                      return Mask.validations.multiple(
+                        validations: [
+                          Mask.validations.generic(
+                            value,
+                            error: 'Confirmar Senha inválida',
+                            min: 8,
+                          ),
+                          Mask.validations.compare(
+                            value,
+                            compareTo: _confirmPasswordEC.text,
+                            error: 'Senha e Confirmar Senha não são iguais',
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   const SizedBox(height: 24),
-                  const PasswordHelperText(
-                    [
-                      'Minimo de 8 caracteres',
-                      'Usar um número (0 - 9)',
-                      'Usar letra maiúscula',
-                      r'Usar caractere especial (!@#$%&*)'
-                    ],
-                  ),
+                  const PasswordHelperText([
+                    'Minimo de 8 caracteres',
+                    'Usar um número (0 - 9)',
+                    'Usar letra maiúscula',
+                    r'Usar caractere especial (!@#$%&*)'
+                  ]),
                   const SizedBox(height: 24),
                   CheckboxListTile(
-                    value: false,
-                    onChanged: (value) {
-                      value = true;
+                    value: _termsAndConditionsChecked,
+                    onChanged: (_) {
+                      setState(() {
+                        _termsAndConditionsChecked = !_termsAndConditionsChecked;
+                      });
                     },
                     dense: true,
                     controlAffinity: ListTileControlAffinity.leading,
