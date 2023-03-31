@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/model/pokemon.dart';
 import 'package:pokedex/viewmodel/poke_view_model.dart';
@@ -76,12 +77,47 @@ class PokemonItem extends StatefulWidget {
 class _PokemonItemState extends State<PokemonItem> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2.0,
-      child: Column(children: [
-        Image.network("$URL_IMAGE${widget.index + 1}$EXTENSION"),
-        Text(widget.pokemon.name),
-      ]),
+    // return Card(
+    //   elevation: 2.0,
+    //   child: Column(children: [
+    //     Image.network("$URL_IMAGE${widget.index + 1}$EXTENSION"),
+    //     Text(widget.pokemon.name),
+    //   ]),
+    // );
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 10,
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.grey,
+            border: Border.all(color: Colors.grey, width: 0.0),
+            borderRadius: const BorderRadius.all(Radius.elliptical(16, 16))),
+        height: 100,
+        child: Row(
+          children: [
+            CachedNetworkImage(
+              placeholder: (context, url) =>
+                  const Center(child: CircularProgressIndicator()),
+              imageUrl: "$URL_IMAGE${widget.index + 1}$EXTENSION",
+              width: 100,
+              height: 100,
+            ),
+            Expanded(
+                child: Padding(
+                    padding: const EdgeInsets.only(top: 8, left: 10),
+                    child: Text(
+                      widget.pokemon.name,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )))
+          ],
+        ),
+      ),
     );
   }
 }
