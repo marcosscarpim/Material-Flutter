@@ -27,8 +27,10 @@ class AppTheme {
       errorBorder: _defaultInputBorder,
       focusedErrorBorder: _defaultInputBorder,
       errorStyle: const TextStyle(),
-      errorMaxLines: 2,
-      labelStyle: AppTextStyles.instance.labelTextField,
+      errorMaxLines: 1,
+      labelStyle: AppTextStyles.instance.labelTextField.copyWith(
+        color: AppColors.instance.labelNeutral,
+      ),
     ),
   );
 

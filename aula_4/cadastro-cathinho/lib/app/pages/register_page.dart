@@ -2,6 +2,7 @@ import 'package:cadastro_cathinho/app/core/ui/styles/app_button_styles.dart';
 import 'package:cadastro_cathinho/app/core/ui/styles/app_colors.dart';
 import 'package:cadastro_cathinho/app/core/ui/styles/app_text_styles.dart';
 import 'package:cadastro_cathinho/app/core/ui/widgets/app_button.dart';
+import 'package:cadastro_cathinho/app/core/ui/widgets/app_calendar_button.dart';
 import 'package:cadastro_cathinho/app/core/ui/widgets/app_text_form_field.dart';
 import 'package:cadastro_cathinho/app/pages/widgets/footer.dart';
 import 'package:cadastro_cathinho/app/pages/widgets/password_helper_text.dart';
@@ -91,7 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 24),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: AppTextFormField(
@@ -103,16 +104,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                       const SizedBox(width: 24),
-                      Expanded(
-                        child: AppTextFormField(
-                          controller: _birthDateEC,
-                          label: 'Nascimento',
-                          suffixIcon: const Icon(Icons.calendar_today_outlined),
-                          keyboardType: TextInputType.datetime,
-                          // TODO: Need to fix validation error eg. value = 29/10/1999
-                          validator: (value) => Mask.validations.date(value),
-                          formatters: [Mask.date()],
-                        ),
+                      const Expanded(
+                        child: AppCalendarButton(),
                       ),
                     ],
                   ),

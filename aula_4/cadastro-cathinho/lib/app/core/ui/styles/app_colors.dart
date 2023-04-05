@@ -19,6 +19,7 @@ class AppColors {
   Color get green => const Color(0xFF02D4A0);
   Color get textFieldBorderColor => const Color(0xFFD9D9D9);
   Color get neutral => const Color(0xFFF0F0F0);
+  Color get labelNeutral => const Color(0xFFBFBFBF);
 }
 
 extension AppColorsExtensions on BuildContext {

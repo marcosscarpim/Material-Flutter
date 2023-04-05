@@ -32,6 +32,9 @@ dependencies:
   email_validator: ^2.1.17
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
   mask: ^1.0.4
 
 dev_dependencies:

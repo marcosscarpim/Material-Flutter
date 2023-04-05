@@ -1,3 +1,4 @@
+import 'package:cadastro_cathinho/app/core/ui/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -37,14 +38,18 @@ class AppTextFormField extends StatelessWidget {
           decoration: InputDecoration(
             floatingLabelBehavior: labelBehavior,
             contentPadding: customContentPadding,
-            label: Text(label),
+            labelText: label,
             suffixIcon: isObscureText
                 ? InkWell(
                     onTap: () => _obscureTextVN.value = !obscureTextVNValue,
-                    child: Icon(obscureTextVNValue ? Icons.lock : Icons.lock_open),
+                    child: Icon(
+                      obscureTextVNValue ? Icons.lock : Icons.lock_open,
+                      color: AppColors.instance.labelNeutral,
+                      size: 18,
+                    ),
                   )
                 : suffixIcon,
-            suffixIconConstraints: const BoxConstraints(minWidth: 36),
+            suffixIconConstraints: const BoxConstraints(minWidth: 42),
           ),
           obscureText: obscureTextVNValue,
           keyboardType: keyboardType,
