@@ -1,21 +1,16 @@
-import 'dart:convert';
-import 'dart:io';
+import 'package:desafio_pokedex/api/custom_dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
 import 'package:desafio_pokedex/model/pokemon.dart';
 import 'package:desafio_pokedex/model/pokemon_list.dart';
 
-Future<List<Pokemon>?> getPokemonListData() async {
-  List<Pokemon>? pokeList;
+Future<List<Pokemon>> getPokemonListData() async {
+  var pokeList = <Pokemon>[];
+  final dio = CustomDio();
+
   try {
-    final response = await http.get(
-      Uri.parse("https://pokeapi.co/api/v2/pokemon?limit=150"),
-      headers: {
-        HttpHeaders.contentTypeHeader: "application/json",
-      },
-    );
+    final response = await dio.get('/pokemon?limit=150');
     if (response.statusCode == 200) {
-      final item = json.decode(response.body);
+      final item = response.data;
       pokeList = getPokemonList(item);
     } else {
       if (kDebugMode) {

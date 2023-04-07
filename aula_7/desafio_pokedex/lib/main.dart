@@ -102,7 +102,7 @@ class _PokemonItemState extends State<PokemonItem> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 8, left: 16),
                 child: Text(
-                  widget.pokemon.name.toUpperCase(),
+                  widget.pokemon.name?.toUpperCase() ?? 'ERRO',
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 28,

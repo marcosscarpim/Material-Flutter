@@ -12,7 +12,7 @@ class PokeViewModel with ChangeNotifier {
       print("Getting pokemons...");
     }
 
-    _pokemonList = (await getPokemonListData())!;
+    _pokemonList = (await getPokemonListData());
 
     if (kDebugMode) {
       print("Finish getting - ${_pokemonList.length} pokemons!");
