@@ -83,6 +83,26 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
+        },
+        {
+            "name": "pokedex",
+            "cwd": "aula_7/pokedex",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "pokedex (profile mode)",
+            "cwd": "aula_7/pokedex",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "pokedex (release mode)",
+            "cwd": "aula_7/pokedex",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }

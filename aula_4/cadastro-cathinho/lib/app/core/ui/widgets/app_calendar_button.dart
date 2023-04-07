@@ -1,6 +1,5 @@
 import 'package:cadastro_cathinho/app/core/ui/styles/app_colors.dart';
 import 'package:cadastro_cathinho/app/core/ui/styles/app_text_styles.dart';
-import 'package:cadastro_cathinho/app/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
