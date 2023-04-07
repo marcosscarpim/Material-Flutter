@@ -103,6 +103,26 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
+        },
+        {
+            "name": "desafio_pokedex",
+            "cwd": "aula_7/desafio_pokedex",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "desafio_pokedex (profile mode)",
+            "cwd": "aula_7/desafio_pokedex",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "desafio_pokedex (release mode)",
+            "cwd": "aula_7/desafio_pokedex",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }
